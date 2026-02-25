@@ -6,9 +6,9 @@ page = requests.get(URL)
 
 soup = BeautifulSoup(page.content, "html.parser")
 
-#all jobs cards | it holds div which contains every single job
+# all jobs cards | it holds div which contains every single job
 results = soup.find(id="ResultsContainer")
-job_cards = results.find_all("div", class_ = "card-content")
+job_cards = results.find_all("div", class_="card-content")
 # for job_card in job_cards:
 #     title = job_card.find("h2", class_ = "title")
 #     company = job_card.find("h3", class_ = "company")
@@ -19,7 +19,6 @@ job_cards = results.find_all("div", class_ = "card-content")
 #     print()
 
 # Want to find only python job instead of all 100 jobs
-python_job_cards = results.find_all("h2", class_ = "title")
+python_job_cards = results.find_all("h2", string="Python")
 for job in python_job_cards:
     print(job.text.strip())
-    print()
