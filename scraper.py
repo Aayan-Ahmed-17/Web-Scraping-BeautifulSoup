@@ -19,6 +19,6 @@ job_cards = results.find_all("div", class_="card-content")
 #     print()
 
 # Want to find only python job instead of all 100 jobs
-python_job_cards = results.find_all("h2", string="Python")
+python_job_cards = results.find_all("h2", string=lambda text: "python" in text.lower())
 for job in python_job_cards:
     print(job.text.strip())
