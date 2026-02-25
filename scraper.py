@@ -19,6 +19,10 @@ job_cards = results.find_all("div", class_="card-content")
 #     print()
 
 # Want to find only python job instead of all 100 jobs
-python_job_cards = results.find_all("h2", string=lambda text: "python" in text.lower())
-for job in python_job_cards:
-    print(job.text.strip())
+python_jobs = results.find_all("h2", string=lambda text: "python" in text.lower())
+# for job in python_jobs:
+#     print(job.text.strip())
+
+#way to get parent tag or element (getting "card-content" class div which holds title, company name, location)
+python_job_cards = [h2_elem.parent.parent.parent for h2_elem in python_jobs]
+
